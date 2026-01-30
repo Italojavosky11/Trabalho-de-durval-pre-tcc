@@ -23,17 +23,15 @@ public class Movimentaçãoplayer : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
-        // Atualiza o contador do coyote time
         if (isGrounded)
             coyoteTimeCounter = coyoteTime;
         else
             coyoteTimeCounter -= Time.deltaTime;
 
-        // Pulo (com coyote time)
         if (Input.GetKeyDown(KeyCode.Space) && coyoteTimeCounter > 0f)
         {
             Jump();
-            coyoteTimeCounter = 0f; // impede pulo duplo
+            coyoteTimeCounter = 0f;
         }
     }
 
@@ -47,8 +45,13 @@ public class Movimentaçãoplayer : MonoBehaviour
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
 
-    // Detecta chão
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+            isGrounded = true;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
             isGrounded = true;
