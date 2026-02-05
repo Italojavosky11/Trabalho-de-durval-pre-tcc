@@ -4,6 +4,7 @@ public class Movimentaçãoplayer : MonoBehaviour
 {
     private float horizontalInput;
     private Rigidbody2D rb;
+    private Animator anim;
 
     [SerializeField] private int speed = 5;
     [SerializeField] private float jumpForce = 7f;
@@ -17,12 +18,14 @@ public class Movimentaçãoplayer : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>(); 
     }
 
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
+        // Coyote Time
         if (isGrounded)
             coyoteTimeCounter = coyoteTime;
         else
@@ -33,6 +36,10 @@ public class Movimentaçãoplayer : MonoBehaviour
             Jump();
             coyoteTimeCounter = 0f;
         }
+
+        
+        anim.SetBool("running", horizontalInput != 0 && isGrounded);
+        anim.SetBool("jumping", !isGrounded);
     }
 
     void FixedUpdate()

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7d06f65b362530a45a53c630785f3c5a
+guid: bdfbfc71ab052954ab82d27f9feff067
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3483598311762719986
-    second: hero_idle_ 03_0
+      213: 2560689792677965551
+    second: Hero_walk03_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_idle_ 03_0
+      name: Hero_walk03_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0b8b37dac5c7afc0800000000000000
-      internalID: -3483598311762719986
+      spriteID: feee980acc5698320800000000000000
+      internalID: 2560689792677965551
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3a5d0dc94d1eb694295ad9454b32d546
+    spriteID: d178c33914ca1254c988011abb1482c3
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hero_idle_ 03_0: -3483598311762719986
+      Hero_walk03_0: 2560689792677965551
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
