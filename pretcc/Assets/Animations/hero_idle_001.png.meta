@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: abadef7a8f0a68f4ab11ffca56cc4927
+guid: c51d5654ee999f243b3f86586a37119d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5626939857298542644
-    second: hero_idle_1_base_0
-  - first:
-      213: -1992860731346690533
-    second: hero_idle_1_base_1
-  - first:
-      213: 3032493465835869121
-    second: hero_idle_1_base_2
-  - first:
-      213: -3748514333061263825
-    second: hero_idle_1_base_3
+      213: 7242396341622678307
+    second: hero_idle_001_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,73 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_idle_1_base_0
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 202
-        width: 22
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ccfab39330819e1b0800000000000000
-      internalID: -5626939857298542644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_idle_1_base_1
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 138
-        width: 22
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1e514539bfe754e0800000000000000
-      internalID: -1992860731346690533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_idle_1_base_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 74
-        width: 22
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c317d68db4951a20800000000000000
-      internalID: 3032493465835869121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_idle_1_base_3
+      name: hero_idle_001_0
       rect:
         serializedVersion: 2
         x: 19
@@ -190,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2e4c66131a9afbc0800000000000000
-      internalID: -3748514333061263825
+      spriteID: 3232201d919228460800000000000000
+      internalID: 7242396341622678307
       vertices: []
       indices: 
       edges: []
