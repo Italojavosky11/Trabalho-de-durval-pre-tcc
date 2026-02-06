@@ -1,36 +1,46 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ataque1 : MonoBehaviour
 {
-    public float speed = 7f;
+    public float speed = 5f;
+    private float timeDestroy;
     private float direcao = 1f;
-    private float lifetime = 1f;
+
+    void Start()
+    {
+        timeDestroy = 1.0f;
+        Destroy(gameObject, timeDestroy);
+    }
+
+    void Update()
+    {
+        transform.Translate(Vector2.right * direcao * speed * Time.deltaTime);
+    }
 
     public void SetDirecao(float novaDirecao)
     {
         direcao = novaDirecao;
 
-        // Espelha o sprite se for esquerda
-        if (direcao < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-    }
-
-    void Start()
-    {
-        Destroy(gameObject, lifetime);
-    }
-
-    void Update()
-    {
-        transform.Translate(Vector2.right * speed * direcao * Time.deltaTime);
+        Vector3 escala = transform.localScale;
+        escala.x = Mathf.Abs(escala.x) * novaDirecao;
+        transform.localScale = escala;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Inimigo"))
+        if (collision.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+
+            ReiniciarParamenu();
         }
+    }
+
+    void ReiniciarParamenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("menu");
     }
 }
