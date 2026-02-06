@@ -2,26 +2,25 @@ using UnityEngine;
 
 public class Ataque1 : MonoBehaviour
 {
-    [SerializeField] private float velocidade = 10f;
-    private Vector2 direcao = Vector2.right; // valor padrão
+    const float lifetime = 1f;
+    public float speed = 7f;
 
-    public void SetDirecao(Vector2 dir)
+    void Start()
     {
-        direcao = dir.normalized;
+        Destroy(gameObject, lifetime);
     }
 
     void Update()
     {
-        transform.Translate(direcao * velocidade * Time.deltaTime);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Inimigo"))
+        if (collision.CompareTag("Inimigo"))
         {
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
-
-        Destroy(gameObject);
     }
 }

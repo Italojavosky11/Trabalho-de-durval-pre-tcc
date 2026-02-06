@@ -16,6 +16,9 @@ public class Movimentaçãoplayer : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
 
+    [Header("Tiro")]
+    [SerializeField] private GameObject balaPrefab; // prefab da bala
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,9 +42,12 @@ public class Movimentaçãoplayer : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
-        // ATAQUE (somente animação – tecla Z)
+        // Ataque (Z)
         if (Input.GetKeyDown(KeyCode.Z))
+        {
             anim.SetBool("atacando", true);
+            Tiro(); // chama o tiro
+        }
 
         if (Input.GetKeyUp(KeyCode.Z))
             anim.SetBool("atacando", false);
@@ -50,11 +56,20 @@ public class Movimentaçãoplayer : MonoBehaviour
         anim.SetBool("running", horizontalInput != 0 && isGrounded);
         anim.SetBool("jumping", !isGrounded);
 
-        // Flip do personagem
+        // Flip
         if (horizontalInput > 0)
             spriteRenderer.flipX = false;
         else if (horizontalInput < 0)
             spriteRenderer.flipX = true;
+    }
+
+    void Tiro()
+    {
+        Instantiate(
+            balaPrefab,
+            transform.position + Vector3.right,
+            Quaternion.identity
+        );
     }
 
     void FixedUpdate()
