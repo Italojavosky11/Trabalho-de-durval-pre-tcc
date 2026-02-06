@@ -14,11 +14,6 @@ public class Movimentaçãoplayer : MonoBehaviour
     private float coyoteTimeCounter;
 
     private SpriteRenderer spriteRenderer;
-
-    [Header("Ataque")]
-    [SerializeField] private GameObject balaPrefab;
-    [SerializeField] private Transform firePoint;
-
     private bool isGrounded;
 
     private void Awake()
@@ -44,12 +39,9 @@ public class Movimentaçãoplayer : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
-        // ATAQUE (tecla Z)
+        // ATAQUE (somente animação – tecla Z)
         if (Input.GetKeyDown(KeyCode.Z))
-        {
             anim.SetBool("atacando", true);
-            Atirar();
-        }
 
         if (Input.GetKeyUp(KeyCode.Z))
             anim.SetBool("atacando", false);
@@ -73,18 +65,6 @@ public class Movimentaçãoplayer : MonoBehaviour
     void Jump()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-    }
-
-    void Atirar()
-    {
-        GameObject bala = Instantiate(balaPrefab, firePoint.position, Quaternion.identity);
-
-        Vector2 direcao = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-
-        Ataque1 ataque = bala.GetComponent<Ataque1>();
-
-        if (ataque != null)
-            ataque.SetDirecao(direcao);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
