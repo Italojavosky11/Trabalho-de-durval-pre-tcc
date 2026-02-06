@@ -6,6 +6,11 @@ public class Movimentaçãoplayer : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
+    [Header("Ataque")]
+    [SerializeField] private GameObject balaPrefab;
+    [SerializeField] private Transform firePoint;
+
+
     [SerializeField] private int speed = 5;
     [SerializeField] private float jumpForce = 7f;
 
@@ -16,9 +21,7 @@ public class Movimentaçãoplayer : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isGrounded;
 
-    [Header("Tiro")]
-    [SerializeField] private GameObject balaPrefab; // prefab da bala
-
+   
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -81,6 +84,17 @@ public class Movimentaçãoplayer : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
     }
+
+    public void Atirar()
+    {
+        GameObject bala = Instantiate(balaPrefab, firePoint.position, Quaternion.identity);
+
+        // Define a direção baseada no flip
+        float direcao = spriteRenderer.flipX ? -1f : 1f;
+
+        bala.GetComponent<Ataque1>().SetDirecao(direcao);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
