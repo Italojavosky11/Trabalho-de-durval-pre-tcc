@@ -13,12 +13,15 @@ public class Movimentaçãoplayer : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.15f;
     private float coyoteTimeCounter;
 
+    private SpriteRenderer spriteRenderer;
+
     private bool isGrounded;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -37,9 +40,26 @@ public class Movimentaçãoplayer : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
-        
+        // ATAQUE (tecla Z)
+        if (Input.GetKeyDown(KeyCode.Z))
+            anim.SetBool("atacando", true);
+
+        if (Input.GetKeyUp(KeyCode.Z))
+            anim.SetBool("atacando", false);
+
+        // Animações
         anim.SetBool("running", horizontalInput != 0 && isGrounded);
         anim.SetBool("jumping", !isGrounded);
+
+
+        if (horizontalInput > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (horizontalInput < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     void FixedUpdate()
